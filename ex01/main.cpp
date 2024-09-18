@@ -8,7 +8,10 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter a command: ";
-		std::getline(std::cin, userInput);
+		if (!std::getline(std::cin, userInput))
+		{
+			break ;
+		}
 		if (userInput == "ADD")
 			phoneBook.addContact();
 		else if (userInput == "SEARCH")

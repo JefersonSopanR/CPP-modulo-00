@@ -27,20 +27,29 @@ std::string	Contact::printMax10chars(std::string str)
     return str;
 }
 
-std::string	Contact::getUserInput(std::string message)
-{
-	std::string userInput;
+#include <iostream>
+#include <string>
+#include <cctype>
 
-	std::cout << message << std::flush;
-	
-	while (std::getline(std::cin, userInput))
-	{
-		if (userInput.empty() || std::isspace(userInput[0]))
-			std::cout << "Please enter a valid input: " << std::flush;
-		else
-			break ;
-	}
-	return (userInput);
+std::string Contact::getUserInput(std::string message)
+{
+    std::string userInput;
+
+    std::cout << message << std::flush;
+
+    while (true)
+    {
+        if (!std::getline(std::cin, userInput))
+        {
+            std::cout << "\nEOF detected. Exiting..." << std::endl;
+            break ;
+        }
+        if (userInput.empty() || std::isspace(userInput[0]))
+            std::cout << "Please enter a valid input: " << std::flush;
+        else
+            break;
+    }
+    return userInput;
 }
 
 std::string Contact::getPhoneNumber(std::string message)
