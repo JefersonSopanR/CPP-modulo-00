@@ -27,10 +27,6 @@ std::string	Contact::printMax10chars(std::string str)
     return str;
 }
 
-#include <iostream>
-#include <string>
-#include <cctype>
-
 std::string Contact::getUserInput(std::string message)
 {
     std::string userInput;
